@@ -3,7 +3,7 @@ import torch
 from utils.tokenizer import python_tokenizer
 
 def generate_python(code):
-    model = torch.load('model_python.pt')
+    model = torch.load('models/model_python.pt')
     tree = ast.parse(code)
     for node in tree.body:
         if isinstance(node, ast.FunctionDef):
@@ -25,7 +25,7 @@ def generate_python(code):
     return ast.unparse(tree)
 
 def generate_sql(code):
-    model = torch.load('model_sql.pt')
+    model = torch.load('models/model_sql.pt')
     comment = model(code)[0]['summary_text']    
     return '/*\n' + comment + '\n*/\n' + code 
 
