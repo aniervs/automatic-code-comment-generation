@@ -25,8 +25,8 @@ pipeline_sql = SummarizationPipeline(
 
 print(f"Hardware Used for the acceleration: {device}")
 
-torch.save(pipeline_python, 'model_python.pt')
-torch.save(pipeline_sql, 'model_sql.pt')
+torch.save(pipeline_python, 'models/model_python.pt')
+torch.save(pipeline_sql, 'models/model_sql.pt')
 
 print("Model saved succesfully")
 
